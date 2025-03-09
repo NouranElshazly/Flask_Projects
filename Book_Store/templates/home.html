@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{% block title %}Home Page {% endblock %}
+{% block content %} 
+      <a href="{{url_for('add_books')}}" class="btn btn-primary p-2 m-5">Add new book</a>
+      <a href="{{url_for('add_author')}}" class="btn btn-primary p-2 m-5">Add new author</a>
+
+        <h4 class="text-lg-center pt-5  text-danger">Welcome To Our Book Store</h2>
+          <div class="d-flex gap-6  p-5 flex-lg-wrap justify-content-between" style="margin-bottom: 150px;">
+            {% for book in books %}
+            <div class="card m-2" style="width: 18rem;">
+                <img class="card-img-top h-100 w-100" src="{{ book.image}}" alt="Book Cover">
+                <div class="card-body ">
+                  <h5 class="card-title">{{book.title}}</h5>
+                   <a href="{{url_for('book_detail',  id=book.id) }}" class="btn btn-primary">show Details</a>
+                </div>
+              </div>
+              {% endfor %}
+{% endblock %}

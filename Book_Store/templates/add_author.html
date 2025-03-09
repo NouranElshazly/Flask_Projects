@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{% block title %}Form page{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %} 
+        <h4 class="text-lg-center pt-5  text-danger">Add Author</h2>
+            <ul>
+                {% for error in errors%}
+                <li>{{error}}</li>
+                {% endfor %}
+            </ul>
+            
+            <div class="container">
+                <form method="POST">
+                    {{wtf.quick_form(form)}}
+                </form>
+            </div>
+{% endblock %}

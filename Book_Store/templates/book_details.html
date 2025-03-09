@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center text-danger">{{ book.title }}</h2>
+        <div class="d-flex justify-content-center">
+            <div class="card m-2" style="width: 20rem;">
+                <img class="card-img-top h-100 w-100" src="{{ book.image}}" alt="Book Cover">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ book.title }}</h5>
+                    <p class="card-text"><strong>Author:</strong> {{ author.name }}</p>
+                    <p class="card-text">{{ book.description }}</p>
+                    <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+                    <a href="{{ url_for('author_details',  id=author.id) }}" class="btn btn-secondary">Show Author_details</a>
+                 </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
